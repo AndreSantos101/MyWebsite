@@ -2,7 +2,7 @@
 
 import Link from "next/link";
 import Image from "next/image";
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { navigationItems, sectionIds } from "@/data/navigation";
 import { profile } from "@/data/profile";
 import { cn } from "@/lib/cn";
@@ -10,19 +10,33 @@ import SocialLinks from "../UI/SocialLinks";
 
 export default function Sidebar() {
   const [activeHash, setActiveHash] = useState("#home");
+  const pendingHashRef = useRef<string | null>(null);
 
   useEffect(() => {
-    function setSectionHash(nextHash: string) {
+    function setSectionHash(nextHash: string, updateUrl = true) {
       setActiveHash((currentHash) =>
         currentHash === nextHash ? currentHash : nextHash,
       );
 
-      if (window.location.hash !== nextHash) {
+      if (updateUrl && window.location.hash !== nextHash) {
         window.history.replaceState(null, "", nextHash);
+      }
+
+      if (pendingHashRef.current === nextHash) {
+        pendingHashRef.current = null;
       }
     }
 
     function syncHashAtViewportBoundaries() {
+      const isNavigatingAwayFromTop =
+        pendingHashRef.current !== null &&
+        pendingHashRef.current !== "#home" &&
+        window.scrollY <= 24;
+
+      if (isNavigatingAwayFromTop) {
+        return false;
+      }
+
       const nearTop = window.scrollY <= 24;
 
       if (nearTop) {
@@ -45,6 +59,7 @@ export default function Sidebar() {
 
     function updateHashFromUrl() {
       const nextHash = window.location.hash || "#home";
+      pendingHashRef.current = nextHash;
 
       setActiveHash((currentHash) =>
         currentHash === nextHash ? currentHash : nextHash,
@@ -147,6 +162,10 @@ export default function Sidebar() {
                       <Link
                         href={item.href}
                         aria-current={isActive ? "page" : undefined}
+                        onClick={() => {
+                          pendingHashRef.current = sectionHash;
+                          setActiveHash(sectionHash);
+                        }}
                         className={cn(
                           "group inline-flex items-center gap-3 rounded-md px-1 py-1 text-xs uppercase tracking-[0.18em] transition duration-200 lg:gap-4 lg:px-0 lg:py-0 lg:text-sm",
                           "focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-teal-300",

@@ -41,7 +41,6 @@ export const experienceItems: ExperienceItem[] = [
       "Collaborated daily with product, design, backend, QA, and delivery teams to ship features and improve performance.",
       "Managed state and logic flows with XState to support a more scalable frontend architecture.",
       "Built responsive and consistent interfaces using styled-components and the company’s design system.",
-      "Helped evolve the platform from a single-user model to an organization-based system with teams, roles, permissions, and document management for premium and enterprise users.",
     ],
     technologies: ["React Native", "TypeScript", "XState", "Styled Components"],
     logoSrc: "/company-logos/uphold.svg",
@@ -54,11 +53,12 @@ export const experienceItems: ExperienceItem[] = [
     role: "Enterprise Frontend Developer",
     period: "June 2022 — August 2024",
     description:
-      "Worked on enterprise-facing frontend experiences and integration-heavy product work, collaborating closely with internal and external teams.",
+      "Worked on an enterprise-facing frontend platform and integration-heavy product work.",
     details: [
-      "Delivered 2 partner integrations with custom authentication, tailored UI, and API connectivity.",
+      "Delivered a partner integration with custom authentication, tailored UI, and API connectivity.",
       "Worked directly with external teams to ensure smooth product integration and rollout.",
       "Contributed both as Enterprise Frontend Developer and Integrations Frontend Developer during this period.",
+      "Helped evolve the platform from a single-user model to an organization-based system with teams, roles, permissions, and document management.",
     ],
     technologies: [
       "React",
