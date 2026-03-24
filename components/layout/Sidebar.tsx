@@ -12,6 +12,37 @@ export default function Sidebar() {
   const [activeHash, setActiveHash] = useState("#home");
 
   useEffect(() => {
+    function setSectionHash(nextHash: string) {
+      setActiveHash((currentHash) =>
+        currentHash === nextHash ? currentHash : nextHash,
+      );
+
+      if (window.location.hash !== nextHash) {
+        window.history.replaceState(null, "", nextHash);
+      }
+    }
+
+    function syncHashAtViewportBoundaries() {
+      const nearTop = window.scrollY <= 24;
+
+      if (nearTop) {
+        setSectionHash("#home");
+        return true;
+      }
+
+      const nearBottom =
+        window.innerHeight + window.scrollY >=
+        document.documentElement.scrollHeight - 48;
+
+      if (nearBottom) {
+        const lastSectionId = sectionIds[sectionIds.length - 1];
+        setSectionHash(`#${lastSectionId}`);
+        return true;
+      }
+
+      return false;
+    }
+
     function updateHashFromUrl() {
       const nextHash = window.location.hash || "#home";
 
@@ -28,6 +59,10 @@ export default function Sidebar() {
 
     const observer = new IntersectionObserver(
       (entries) => {
+        if (syncHashAtViewportBoundaries()) {
+          return;
+        }
+
         const visibleEntries = entries
           .filter((entry) => entry.isIntersecting)
           .sort((a, b) => b.intersectionRatio - a.intersectionRatio);
@@ -40,13 +75,7 @@ export default function Sidebar() {
         if (!id) return;
 
         const nextHash = `#${id}`;
-        setActiveHash((currentHash) =>
-          currentHash === nextHash ? currentHash : nextHash,
-        );
-
-        if (window.location.hash !== nextHash) {
-          window.history.replaceState(null, "", nextHash);
-        }
+        setSectionHash(nextHash);
       },
       {
         root: null,
@@ -57,10 +86,16 @@ export default function Sidebar() {
 
     sections.forEach((section) => observer.observe(section));
     window.addEventListener("hashchange", updateHashFromUrl);
+    window.addEventListener("scroll", syncHashAtViewportBoundaries, {
+      passive: true,
+    });
+    window.addEventListener("resize", syncHashAtViewportBoundaries);
 
     return () => {
       observer.disconnect();
       window.removeEventListener("hashchange", updateHashFromUrl);
+      window.removeEventListener("scroll", syncHashAtViewportBoundaries);
+      window.removeEventListener("resize", syncHashAtViewportBoundaries);
     };
   }, []);
 
@@ -100,7 +135,7 @@ export default function Sidebar() {
             </p>
           </div>
 
-          <div className="flex flex-col items-end gap-4 lg:block">
+          <div className="flex flex-col items-end gap-4 pr-1 lg:block lg:pr-0">
             <nav aria-label="Main navigation" className="shrink-0 lg:pt-6">
               <ul className="flex flex-col items-end gap-3 lg:items-start lg:space-y-4 lg:gap-0">
                 {navigationItems.map((item) => {

@@ -76,7 +76,7 @@ h6 {
   mix-blend-mode: screen;
 }
 
-.site-spotlight>* {
+.site-shell-content {
   position: relative;
   z-index: 1;
 }

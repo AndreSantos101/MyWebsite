@@ -57,12 +57,12 @@ export default function SiteShell({ children }: SiteShellProps) {
     >
       <a
         href="#main-content"
-        className="sr-only absolute left-4 top-4 z-50 rounded-md bg-slate-100 px-4 py-2 text-sm font-medium text-slate-950 focus:not-sr-only"
+        className="skip-link sr-only absolute left-4 top-4 z-50 rounded-md bg-slate-100 px-4 py-2 text-sm font-medium text-slate-950 focus:not-sr-only"
       >
         Skip to content
       </a>
 
-      <div className="mx-auto max-w-7xl lg:flex lg:justify-between lg:gap-4">
+      <div className="site-shell-content mx-auto max-w-7xl lg:flex lg:justify-between lg:gap-4">
         <Sidebar />
 
         <main
@@ -73,6 +73,28 @@ export default function SiteShell({ children }: SiteShellProps) {
           {children}
         </main>
       </div>
+
+      <a
+        href="#home"
+        aria-label="Go to top"
+        className="fixed bottom-6 right-6 z-40 inline-flex h-11 w-11 items-center justify-center rounded-full border border-white/12 bg-slate-900/80 text-slate-100 shadow-[0_12px_32px_rgba(2,6,23,0.35)] backdrop-blur-sm transition duration-200 hover:-translate-y-0.5 hover:border-white/20 hover:bg-slate-900/90 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-teal-300 sm:bottom-8 sm:right-8"
+      >
+        <svg
+          viewBox="0 0 20 20"
+          fill="none"
+          className="h-5 w-5"
+          aria-hidden="true"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <path
+            d="M10 14.5V5.5M10 5.5L6.5 9M10 5.5L13.5 9"
+            stroke="currentColor"
+            strokeWidth="1.8"
+            strokeLinecap="round"
+            strokeLinejoin="round"
+          />
+        </svg>
+      </a>
     </div>
   );
 }
