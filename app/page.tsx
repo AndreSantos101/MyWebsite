@@ -1,16 +1,15 @@
-import SiteShell from "@/components/layout/SiteShell";
-import HomeSection from "@/components/sections/HomeSection";
-import PathSection from "@/components/sections/PathSection";
-import WhoAmISection from "@/components/sections/WhoAmISection";
+import PortfolioPage from "@/components/pages/PortfolioPage";
+import { getSiteContent } from "@/data/site-content";
+
+export function generateMetadata() {
+  const content = getSiteContent("en");
+
+  return {
+    title: content.metadata.title,
+    description: content.metadata.description,
+  };
+}
 
 export default function HomePage() {
-  return (
-    <SiteShell>
-      <div className="space-y-24">
-        <HomeSection />
-        <PathSection />
-        <WhoAmISection />
-      </div>
-    </SiteShell>
-  );
+  return <PortfolioPage locale="en" />;
 }

@@ -1,8 +1,9 @@
 import type { ComponentType, SVGProps } from "react";
-import { profile, type SocialIconName } from "@/data/profile";
+import type { ProfileContent, SocialIconName } from "@/data/site-content";
 import { cn } from "@/lib/cn";
 
 type SocialLinksProps = {
+  socials: ProfileContent["socials"];
   className?: string;
 };
 
@@ -38,11 +39,14 @@ const socialIcons: Record<SocialIconName, ComponentType<SocialIconProps>> = {
   linkedin: LinkedInIcon,
 };
 
-export default function SocialLinks({ className = "" }: SocialLinksProps) {
+export default function SocialLinks({
+  socials,
+  className = "",
+}: SocialLinksProps) {
   return (
     <div className={className}>
       <div className="flex items-center justify-center gap-4">
-        {profile.socials.map((social) => {
+        {socials.map((social) => {
           const Icon = socialIcons[social.icon];
 
           return (

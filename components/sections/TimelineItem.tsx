@@ -1,14 +1,16 @@
 import ExperienceCard from "@/components/sections/ExperienceCard";
-import type { ExperienceItem } from "@/data/experience";
+import type { ExperienceItem } from "@/data/site-content";
 import { cn } from "@/lib/cn";
 
 type TimelineItemProps = {
   item: ExperienceItem;
+  companyLogoLabel: string;
   isLast?: boolean;
 };
 
 export default function TimelineItem({
   item,
+  companyLogoLabel,
   isLast = false,
 }: TimelineItemProps) {
   return (
@@ -33,7 +35,7 @@ export default function TimelineItem({
       </div>
 
       <div className="pb-10 sm:pb-12">
-        <ExperienceCard item={item} />
+        <ExperienceCard item={item} companyLogoLabel={companyLogoLabel} />
       </div>
     </div>
   );

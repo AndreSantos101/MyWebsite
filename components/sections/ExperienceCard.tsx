@@ -1,12 +1,16 @@
 import Image from "next/image";
-import type { ExperienceItem } from "@/data/experience";
+import type { ExperienceItem } from "@/data/site-content";
 import { cn } from "@/lib/cn";
 
 type ExperienceCardProps = {
   item: ExperienceItem;
+  companyLogoLabel: string;
 };
 
-export default function ExperienceCard({ item }: ExperienceCardProps) {
+export default function ExperienceCard({
+  item,
+  companyLogoLabel,
+}: ExperienceCardProps) {
   return (
     <details
       className={cn(
@@ -42,7 +46,7 @@ export default function ExperienceCard({ item }: ExperienceCardProps) {
             <div className="flex h-16 w-16 shrink-0 items-center justify-center rounded-2xl border border-white/20 bg-white p-3 shadow-sm">
               <Image
                 src={item.logoSrc}
-                alt={`${item.company} logo`}
+                alt={`${item.company} ${companyLogoLabel}`}
                 width={40}
                 height={40}
                 className="max-h-10 w-auto object-contain"

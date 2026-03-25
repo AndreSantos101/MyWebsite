@@ -2,12 +2,29 @@
 
 import { useEffect, useRef } from "react";
 import Sidebar from "@/components/layout/Sidebar";
+import type {
+  ProfileContent,
+  SiteContent,
+} from "@/data/site-content";
+import type { Locale } from "@/lib/i18n";
 
 type SiteShellProps = {
   children: React.ReactNode;
+  locale: Locale;
+  profile: ProfileContent;
+  navigation: SiteContent["navigation"];
+  languageSwitcher: SiteContent["languageSwitcher"];
+  ui: SiteContent["ui"];
 };
 
-export default function SiteShell({ children }: SiteShellProps) {
+export default function SiteShell({
+  children,
+  locale,
+  profile,
+  navigation,
+  languageSwitcher,
+  ui,
+}: SiteShellProps) {
   const shellRef = useRef<HTMLDivElement | null>(null);
   const frameRef = useRef<number | null>(null);
   const spotlightRef = useRef({ x: "50%", y: "20%" });
@@ -59,11 +76,17 @@ export default function SiteShell({ children }: SiteShellProps) {
         href="#main-content"
         className="skip-link sr-only absolute left-4 top-4 z-50 rounded-md bg-slate-100 px-4 py-2 text-sm font-medium text-slate-950 focus:not-sr-only"
       >
-        Skip to content
+        {ui.skipToContent}
       </a>
 
       <div className="site-shell-content mx-auto max-w-7xl lg:flex lg:justify-between lg:gap-4">
-        <Sidebar />
+        <Sidebar
+          locale={locale}
+          profile={profile}
+          navigation={navigation}
+          languageSwitcher={languageSwitcher}
+          ui={ui}
+        />
 
         <main
           id="main-content"
@@ -76,7 +99,7 @@ export default function SiteShell({ children }: SiteShellProps) {
 
       <a
         href="#home"
-        aria-label="Go to top"
+        aria-label={ui.goToTop}
         className="fixed bottom-6 right-6 z-40 inline-flex h-11 w-11 items-center justify-center rounded-full border border-white/12 bg-slate-900/80 text-slate-100 shadow-[0_12px_32px_rgba(2,6,23,0.35)] backdrop-blur-sm transition duration-200 hover:-translate-y-0.5 hover:border-white/20 hover:bg-slate-900/90 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-teal-300 sm:bottom-8 sm:right-8"
       >
         <svg

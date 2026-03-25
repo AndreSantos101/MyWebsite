@@ -1,9 +1,18 @@
 import TimelineItem from "@/components/sections/TimelineItem";
-import { experienceItems } from "@/data/experience";
-import { pathContent } from "@/data/path";
+import type { ExperienceItem, PathContent } from "@/data/site-content";
 import SectionHeader from "./SectionHeader";
 
-export default function PathSection() {
+type PathSectionProps = {
+  content: PathContent;
+  experienceItems: ExperienceItem[];
+  companyLogoLabel: string;
+};
+
+export default function PathSection({
+  content,
+  experienceItems,
+  companyLogoLabel,
+}: PathSectionProps) {
   return (
     <section
       id="path"
@@ -12,13 +21,13 @@ export default function PathSection() {
     >
       <SectionHeader
         titleId="path-heading"
-        title={pathContent.title}
-        eyebrow={pathContent.mobileEyebrow}
+        title={content.title}
+        eyebrow={content.mobileEyebrow}
         titleClassName="max-w-4xl"
         introClassName="max-w-3xl"
         intro={
           <>
-            {pathContent.intro.map((paragraph) => (
+            {content.intro.map((paragraph) => (
               <p
                 key={paragraph}
                 className="text-[1.05rem] leading-8 text-slate-200"
@@ -35,6 +44,7 @@ export default function PathSection() {
           <TimelineItem
             key={`${item.company}-${item.period}`}
             item={item}
+            companyLogoLabel={companyLogoLabel}
             isLast={index === experienceItems.length - 1}
           />
         ))}

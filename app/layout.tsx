@@ -1,19 +1,28 @@
 import type { Metadata } from "next";
+import { defaultLocale, isLocale } from "@/lib/i18n";
 import "./globals.css";
 
 export const metadata: Metadata = {
-  title: "Andre Santos | Senior Frontend Engineer",
-  description:
-    "Personal website of Andre Santos, Frontend Engineer focused on building accessible and polished web experiences.",
+  title: "Andre Santos | Portfolio",
+  description: "Localized personal portfolio of Andre Santos.",
 };
 
 type RootLayoutProps = {
   children: React.ReactNode;
+  params: Promise<{
+    locale?: string;
+  }>;
 };
 
-export default function RootLayout({ children }: RootLayoutProps) {
+export default async function RootLayout({
+  children,
+  params,
+}: RootLayoutProps) {
+  const { locale } = await params;
+  const htmlLang = isLocale(locale) ? locale : defaultLocale;
+
   return (
-    <html lang="en">
+    <html lang={htmlLang}>
       <body>{children}</body>
     </html>
   );

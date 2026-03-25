@@ -3,12 +3,40 @@
 import Link from "next/link";
 import Image from "next/image";
 import { useEffect, useRef, useState } from "react";
-import { navigationItems, sectionIds } from "@/data/navigation";
-import { profile } from "@/data/profile";
+import { sectionIds } from "@/data/navigation";
+import type { ProfileContent, SiteContent } from "@/data/site-content";
 import { cn } from "@/lib/cn";
+import type { Locale } from "@/lib/i18n";
+import { getLocaleBasePath, getSectionHref } from "@/lib/i18n";
 import SocialLinks from "../UI/SocialLinks";
 
-export default function Sidebar() {
+type SidebarProps = {
+  locale: Locale;
+  profile: ProfileContent;
+  navigation: SiteContent["navigation"];
+  languageSwitcher: SiteContent["languageSwitcher"];
+  ui: SiteContent["ui"];
+};
+
+const localeCodes: Record<Locale, string> = {
+  en: "EN",
+  pt: "PT",
+  de: "DE",
+};
+
+const localeFlags: Record<Locale, string> = {
+  en: "🇬🇧",
+  pt: "🇵🇹",
+  de: "🇩🇪",
+};
+
+export default function Sidebar({
+  locale,
+  profile,
+  navigation,
+  languageSwitcher,
+  ui,
+}: SidebarProps) {
   const [activeHash, setActiveHash] = useState("#home");
   const pendingHashRef = useRef<string | null>(null);
 
@@ -116,9 +144,84 @@ export default function Sidebar() {
 
   return (
     <aside
-      aria-label="Sidebar"
+      aria-label={ui.sidebarAriaLabel}
       className="border-b border-slate-800/80 px-6 py-5 lg:sticky lg:top-0 lg:h-screen lg:w-[22rem] lg:border-r lg:border-b-0 lg:px-8 lg:py-16"
     >
+      <div className="fixed top-4 right-4 z-50 sm:top-6 sm:right-6">
+        <details className="group relative">
+          <summary
+            aria-label={languageSwitcher.label}
+            className="flex cursor-pointer list-none items-center gap-2 rounded-full border border-white/10 bg-slate-950/75 px-3 py-2 text-sm text-slate-100 shadow-[0_12px_32px_rgba(2,6,23,0.35)] backdrop-blur-md transition duration-200 hover:border-white/20 hover:bg-slate-950/85 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-teal-300 [&::-webkit-details-marker]:hidden"
+          >
+            <span className="text-base leading-none" aria-hidden="true">
+              {localeFlags[locale]}
+            </span>
+            <span className="font-semibold tracking-[0.14em]">
+              {localeCodes[locale]}
+            </span>
+            <svg
+              viewBox="0 0 20 20"
+              fill="none"
+              className="h-4 w-4 text-slate-400 transition duration-200 group-open:rotate-180"
+              aria-hidden="true"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                d="M5 7.5L10 12.5L15 7.5"
+                stroke="currentColor"
+                strokeWidth="1.8"
+                strokeLinecap="round"
+                strokeLinejoin="round"
+              />
+            </svg>
+          </summary>
+
+          <div className="absolute right-0 mt-2 min-w-44 overflow-hidden rounded-2xl border border-white/10 bg-slate-950/95 p-1.5 shadow-[0_18px_48px_rgba(2,6,23,0.45)] backdrop-blur-md">
+            {(["en", "pt", "de"] as const).map((targetLocale) => {
+              const href = `${getLocaleBasePath(targetLocale)}${activeHash}`;
+              const isCurrentLocale = locale === targetLocale;
+
+              if (isCurrentLocale) {
+                return (
+                  <span
+                    key={targetLocale}
+                    className="flex items-center gap-3 rounded-xl bg-white/8 px-3 py-2 text-sm text-slate-100"
+                  >
+                    <span className="text-base leading-none" aria-hidden="true">
+                      {localeFlags[targetLocale]}
+                    </span>
+                    <span className="flex-1">
+                      {languageSwitcher.locales[targetLocale]}
+                    </span>
+                    <span className="text-[11px] font-semibold tracking-[0.14em] text-teal-300">
+                      {localeCodes[targetLocale]}
+                    </span>
+                  </span>
+                );
+              }
+
+              return (
+                <Link
+                  key={targetLocale}
+                  href={href}
+                  className="flex items-center gap-3 rounded-xl px-3 py-2 text-sm text-slate-300 transition duration-200 hover:bg-white/6 hover:text-slate-100"
+                >
+                  <span className="text-base leading-none" aria-hidden="true">
+                    {localeFlags[targetLocale]}
+                  </span>
+                  <span className="flex-1">
+                    {languageSwitcher.locales[targetLocale]}
+                  </span>
+                  <span className="text-[11px] font-semibold tracking-[0.14em] text-slate-500">
+                    {localeCodes[targetLocale]}
+                  </span>
+                </Link>
+              );
+            })}
+          </div>
+        </details>
+      </div>
+
       <div className="flex flex-col gap-6 lg:h-full lg:justify-between">
         <div className="flex items-start justify-between gap-6 lg:block lg:space-y-10">
           <div className="max-w-[16rem] space-y-4 lg:max-w-none lg:space-y-6 lg:text-center">
@@ -126,7 +229,7 @@ export default function Sidebar() {
               <div className="relative h-20 w-20 shrink-0 overflow-hidden rounded-full border border-white/10 bg-slate-900/40 lg:h-32 lg:w-32">
                 <Image
                   src="/profile.jpg"
-                  alt="Portrait of André Santos"
+                  alt={profile.portraitAlt}
                   fill
                   className="object-cover"
                   sizes="(max-width: 1024px) 80px, 128px"
@@ -151,16 +254,16 @@ export default function Sidebar() {
           </div>
 
           <div className="flex flex-col items-end gap-4 pr-1 lg:block lg:pr-0">
-            <nav aria-label="Main navigation" className="shrink-0 lg:pt-6">
+            <nav aria-label={navigation.ariaLabel} className="shrink-0 lg:pt-6">
               <ul className="flex flex-col items-end gap-3 lg:items-start lg:space-y-4 lg:gap-0">
-                {navigationItems.map((item) => {
+                {navigation.items.map((item) => {
                   const sectionHash = `#${item.sectionId}`;
                   const isActive = activeHash === sectionHash;
 
                   return (
-                    <li key={item.href}>
+                    <li key={item.sectionId}>
                       <Link
-                        href={item.href}
+                        href={getSectionHref(locale, item.sectionId)}
                         aria-current={isActive ? "page" : undefined}
                         onClick={() => {
                           pendingHashRef.current = sectionHash;
@@ -190,11 +293,11 @@ export default function Sidebar() {
               </ul>
             </nav>
 
-            <SocialLinks className="lg:hidden" />
+            <SocialLinks socials={profile.socials} className="lg:hidden" />
           </div>
         </div>
 
-        <SocialLinks className="hidden lg:block" />
+        <SocialLinks socials={profile.socials} className="hidden lg:block" />
       </div>
     </aside>
   );

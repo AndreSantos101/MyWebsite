@@ -1,9 +1,13 @@
-import { homeContent } from "@/data/home";
+import type { HomeContent } from "@/data/site-content";
 import SectionHeader from "./SectionHeader";
 import TextHighlights from "../UI/TextHighlights";
 import FeatureGrid from "../UI/FeatureGrid";
 
-export default function HomeSection() {
+type HomeSectionProps = {
+  content: HomeContent;
+};
+
+export default function HomeSection({ content }: HomeSectionProps) {
   return (
     <section
       id="home"
@@ -12,14 +16,14 @@ export default function HomeSection() {
     >
       <div>
         <SectionHeader
-          eyebrow={homeContent.eyebrow}
-          title={homeContent.title}
+          eyebrow={content.eyebrow}
+          title={content.title}
           titleId="home-heading"
           withTitleOffset={false}
         />
 
         <TextHighlights
-          items={homeContent.intro}
+          items={content.intro}
           emphasizedFirst
           className="mt-10 max-w-3xl"
         />
@@ -30,10 +34,10 @@ export default function HomeSection() {
           id="focus-heading"
           className="text-lg font-semibold tracking-tight text-[#CCFBF1]"
         >
-          {homeContent.focusTitle}
+          {content.focusTitle}
         </h3>
 
-        <FeatureGrid items={homeContent.focusItems} className="mt-6" />
+        <FeatureGrid items={content.focusItems} className="mt-6" />
       </section>
     </section>
   );
