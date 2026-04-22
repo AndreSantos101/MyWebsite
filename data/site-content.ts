@@ -182,8 +182,7 @@ const siteContentByLocale: Record<Locale, SiteContent> = {
       label: "Language",
       locales: {
         en: "English",
-        pt: "Portuguese",
-        de: "German",
+        pt: "Português",
       },
     },
     ui: {
@@ -301,15 +300,15 @@ const siteContentByLocale: Record<Locale, SiteContent> = {
   },
   pt: {
     metadata: {
-      title: "Andre Santos | Senior Frontend Developer",
+      title: "Andre Santos | Senior Frontend Engineer",
       description:
-        "Site pessoal de André Santos, engenheiro frontend focado em criar experiências web acessíveis e cuidadas.",
+        "Site pessoal de André Santos, senior frontend engineer focado em criar experiências web acessíveis e bem construídas.",
     },
     profile: {
       name: "André Santos",
-      role: "Senior Frontend Developer",
+      role: "Senior Frontend Engineer",
       intro:
-        "Sou um Senior Frontend Developer que gosta de criar experiências digitais acessíveis, polidas e rápidas, daquelas que parecem fáceis de usar.\nDúvidas? Dá uma olhadela ao site!",
+        "Sou um senior frontend engineer que gosta de criar experiências digitais acessíveis, fluidas, rápidas, intuitivas e fáceis de usar.\nDuvidas? Dá uma volta pelo site!",
       portraitAlt: "Retrato de André Santos",
       socials,
     },
@@ -326,7 +325,6 @@ const siteContentByLocale: Record<Locale, SiteContent> = {
       locales: {
         en: "English",
         pt: "Português",
-        de: "Deutsch",
       },
     },
     ui: {
@@ -337,13 +335,14 @@ const siteContentByLocale: Record<Locale, SiteContent> = {
     },
     home: {
       eyebrow: "Bem-vindo ao André 101!",
-      title: "O engenheiro que, por acaso, trabalha em frontend",
+      title: "Um engenheiro que, também, trabalha com frontend",
       intro: [
         "Sou apaixonado por tecnologia e gosto de aprender, melhorar e contribuir sempre que posso. O que me distingue não são apenas as minhas competências técnicas, mas também a forma como trabalho com outras pessoas. Sou comunicativo, adaptável e alguém que ajuda a criar um ambiente de equipa colaborativo e positivo.",
-        "Ao longo dos anos, trabalhei em equipas de produto nas áreas de fintech, publicação, logística, e-commerce e saúde, com forte foco em React, TypeScript, desenvolvimento de interfaces e usabilidade. Passei por contextos muito diferentes, desde startups a grandes empresas, incluindo organizações cotadas na NYSE, o que me deu experiência tanto com sistemas legacy como com arquiteturas modernas.",
-        "Desde ferramentas internas usadas por milhares de pessoas em todo o mundo até módulos de back-office e plataformas viradas para clientes, tive oportunidade de contribuir para projetos e desafios muito diferentes. Nesse caminho, desenvolvi um forte product mindset e um apreço genuíno por construir e fazer crescer um produto.",
+        "Ao longo dos anos, trabalhei em equipas de produto nas áreas de fintech, publishing, logística, e-commerce e saúde, com forte foco em React, TypeScript, desenvolvimento de interfaces e usabilidade. Passei por contextos muito diferentes, desde startups a grandes empresas, incluindo organizações cotadas na NYSE, o que me deu experiência tanto com sistemas legacy como com arquiteturas modernas.",
+        "Desde ferramentas internas usadas por milhares de pessoas em todo o mundo até módulos de back-office e plataformas voltadas para o cliente, tive oportunidade de contribuir para projetos e desafios muito diferentes. Ao longo desse percurso, desenvolvi uma forte mentalidade de produto e um apreço genuíno por construir e fazer crescer um produto.",
       ],
-      focusTitle: "Alguns exemplos do que fui fazendo ao longo da minha carreira",
+      focusTitle:
+        "Alguns exemplos do que fui fazendo ao longo da minha carreira",
       focusItems: [
         "Desenvolvimento de design systems",
         "Arquitetura frontend que acompanha a complexidade do produto",
@@ -363,7 +362,7 @@ const siteContentByLocale: Record<Locale, SiteContent> = {
       {
         ...baseExperienceStyles[0],
         role: "Fullstack Developer",
-        period: "Março 2025 - Atual",
+        period: "Março de 2025 - Presente",
         description:
           "A contribuir para a modernização de uma grande plataforma de logística usada diariamente por dezenas de milhares de utilizadores.",
         details: [
@@ -377,7 +376,7 @@ const siteContentByLocale: Record<Locale, SiteContent> = {
       {
         ...baseExperienceStyles[1],
         role: "Wallet Frontend Developer",
-        period: "Outubro 2024 - Fevereiro 2025",
+        period: "Outubro de 2024 - Fevereiro de 2025",
         description:
           "Trabalhei na wallet digital da Uphold para Android, iOS e web, com foco em arquitetura frontend escalável e experiências de produto polidas.",
         details: [
@@ -390,7 +389,7 @@ const siteContentByLocale: Record<Locale, SiteContent> = {
       {
         ...baseExperienceStyles[2],
         role: "Enterprise Frontend Developer",
-        period: "Junho 2022 - Agosto 2024",
+        period: "Junho de 2022 - Agosto de 2024",
         description:
           "Trabalhei numa plataforma frontend orientada a clientes enterprise e em produto com forte componente de integrações.",
         details: [
@@ -403,7 +402,7 @@ const siteContentByLocale: Record<Locale, SiteContent> = {
       {
         ...baseExperienceStyles[3],
         role: "Admin Tools Frontend Developer",
-        period: "Setembro 2019 - Março 2022",
+        period: "Setembro de 2019 - Março de 2022",
         description:
           "Criei e evoluí módulos de back-office para fluxos operacionais e logísticos, com forte foco em migração e manutenção.",
         details: [
@@ -416,7 +415,7 @@ const siteContentByLocale: Record<Locale, SiteContent> = {
       {
         ...baseExperienceStyles[4],
         role: "Junior Developer",
-        period: "Setembro 2017 - Abril 2019",
+        period: "Setembro de 2017 - Abril de 2019",
         description:
           "Trabalhei numa grande aplicação web de saúde usada em Portugal, ajudando a manter estabilidade e a entregar melhorias de produto.",
         details: [
@@ -427,162 +426,18 @@ const siteContentByLocale: Record<Locale, SiteContent> = {
       },
     ],
     personal: {
-      title: "Quem é o André fora da engenharia",
+      title: "Quem é o André, o não engenheiro",
       mobileEyebrow: "Quem eu sou, na verdade",
       description:
         "Fora do trabalho, fui tendo interesses diferentes em fases diferentes da minha vida.\nAlguns desses interesses, juntamente com algumas coincidências felizes, ajudaram-me a criar amizades genuínas ao longo de grande parte do meu percurso profissional.",
       items: [
         "Viajar. Cliché, eu sei, mas raramente ouço alguém a queixar-se disso.",
-        "LEGO (Star Wars, Harry Potter, Architecture, o que quiseres)",
+        "LEGO (Star Wars, Harry Potter, Architecture, tudo um pouco)",
         "Animais. Tenho a sorte de viver com dois gatos lindos: Loki e Kitty.",
-        "Cinema. Sou uma daquelas pessoas que já levou a sério seguir a lista Top 250 do IMDb.",
-        "Séries e anime. Aqui sou um bocadinho snob, por isso tudo o que tenha 8.5 ou mais no IMDb vai direto para a minha watchlist.",
+        "Cinema. Sou uma daquelas pessoas que decidiu seguir a lista Top 250 do IMDb dos melhores filmes de sempre.",
+        "Séries e anime. Aqui sou um pouco snob, por isso tudo o que tenha 8.5 ou mais no IMDb vai diretamente para a minha watchlist.",
         "Passar tempo com as pessoas de quem mais gosto, seja em encontros de família ou jantares com amigos.",
-        "Futebol. O jogado com os pés. Grande adepto do FC Porto.",
-      ],
-    },
-  },
-  de: {
-    metadata: {
-      title: "Andre Santos | Senior Frontend Engineer",
-      description:
-        "Persönliche Website von Andre Santos, einem Frontend Engineer mit Fokus auf barrierefreie und durchdachte Web-Erlebnisse.",
-    },
-    profile: {
-      name: "André Santos",
-      role: "Senior Frontend Engineer",
-      intro:
-        "Ich bin Senior Frontend Engineer und entwickle gern zugängliche, schnelle und sauber gestaltete digitale Erlebnisse, die sich leicht anfühlen.\nZweifel? Schau dich einfach um!",
-      portraitAlt: "Porträt von André Santos",
-      socials,
-    },
-    navigation: {
-      ariaLabel: "Hauptnavigation",
-      items: [
-        { label: "Start", sectionId: "home" },
-        { label: "Werdegang", sectionId: "path" },
-        { label: "Wer bin ich?", sectionId: "who-am-i" },
-      ],
-    },
-    languageSwitcher: {
-      label: "Sprache",
-      locales: {
-        en: "Englisch",
-        pt: "Portugiesisch",
-        de: "Deutsch",
-      },
-    },
-    ui: {
-      skipToContent: "Zum Inhalt springen",
-      goToTop: "Nach oben",
-      sidebarAriaLabel: "Seitenleiste",
-      companyLogoLabel: "Logo",
-    },
-    home: {
-      eyebrow: "Willkommen bei André 101!",
-      title: "Der Engineer, der eher zufällig im Frontend gelandet ist",
-      intro: [
-        "Ich begeistere mich für Technologie und lerne, verbessere und unterstütze gern dort, wo ich etwas beitragen kann. Was mich auszeichnet, sind nicht nur meine technischen Fähigkeiten, sondern auch die Art, wie ich mit Menschen zusammenarbeite. Ich bin kommunikativ, anpassungsfähig und jemand, der zu einer positiven und kollaborativen Teamkultur beiträgt.",
-        "Im Laufe der Jahre habe ich in Produktteams aus Fintech, Publishing, Logistik, E-Commerce und Health Care gearbeitet, mit starkem Fokus auf React, TypeScript, UI-Entwicklung und Usability. Ich war in sehr unterschiedlichen Umfeldern unterwegs, von Start-ups bis zu großen Unternehmen, darunter auch NYSE-notierte Konzerne. Dadurch kenne ich sowohl lang gewachsene Legacy-Systeme als auch moderne Architekturen.",
-        "Von internen Tools, die weltweit von Tausenden Menschen genutzt werden, bis hin zu Backoffice-Modulen und kundenorientierten Plattformen durfte ich an sehr unterschiedlichen Projekten und Herausforderungen mitarbeiten. Dabei habe ich ein starkes Produktverständnis entwickelt und echte Freude daran gefunden, Produkte aufzubauen und weiterzuentwickeln.",
-      ],
-      focusTitle:
-        "Ein paar Beispiele für das, was ich in meiner Laufbahn gemacht habe",
-      focusItems: [
-        "Entwicklung von Design Systems",
-        "Frontend-Architektur, die mit der Produktkomplexität mitwächst",
-        "Barrierefreiheit und durchdachte User Experience",
-        "Lesbarer, wartbarer und gut getesteter Code",
-      ],
-    },
-    path: {
-      mobileEyebrow: "Mein Weg",
-      title: "Mein beruflicher Weg bisher",
-      intro: [
-        "Eine Zeitleiste der Rollen, Branchen und Produktkontexte, die geprägt haben, wie ich über Frontend Engineering, Interface-Qualität und wartbare digitale Erlebnisse denke.",
-        "Du kannst jede Station erkunden, indem du die Karten aufklappst.",
-      ],
-    },
-    experience: [
-      {
-        ...baseExperienceStyles[0],
-        role: "Fullstack Developer",
-        period: "März 2025 - Heute",
-        description:
-          "Ich arbeite an der Modernisierung einer großen Logistikplattform, die täglich von Zehntausenden Menschen genutzt wird.",
-        details: [
-          "Ich habe ein Legacy-Frontend in Java Swing nach Angular + NgRx migriert.",
-          "Ich habe eine globale Logistik-UI modernisiert, die täglich von über 80.000 Nutzern an Flughäfen und Seehäfen verwendet wird.",
-          "Ich habe neue Funktionen und Verbesserungen entwickelt, um Usability und Effizienz innerhalb einer grossen monolithischen Anwendung zu steigern.",
-          "Ich habe Produktionsprobleme analysiert und gelöst, die kritische Logistikprozesse unterstützen.",
-          "Ich habe mit verteilten Teams zusammengearbeitet, um skalierbare Lösungen zu liefern und die laufende Modernisierung der Plattform voranzutreiben.",
-        ],
-      },
-      {
-        ...baseExperienceStyles[1],
-        role: "Wallet Frontend Developer",
-        period: "Oktober 2024 - Februar 2025",
-        description:
-          "Ich habe an Upholds digitaler Wallet für Android, iOS und Web gearbeitet, mit Fokus auf skalierbare Frontend-Architektur und hochwertige Produkterlebnisse.",
-        details: [
-          "Ich habe Wallet-Funktionen für Android, iOS und Web mit React Native entwickelt und gepflegt.",
-          "Ich habe täglich mit Produkt, Design, Backend, QA und Delivery zusammengearbeitet, um Features auszuliefern und die Performance zu verbessern.",
-          "Ich habe State- und Logik-Flows mit XState umgesetzt, um eine besser skalierbare Frontend-Architektur zu unterstützen.",
-          "Ich habe responsive und konsistente Interfaces mit styled-components und dem Design System des Unternehmens gebaut.",
-        ],
-      },
-      {
-        ...baseExperienceStyles[2],
-        role: "Enterprise Frontend Developer",
-        period: "Juni 2022 - August 2024",
-        description:
-          "Ich habe an einer enterprise-orientierten Frontend-Plattform und an produktnaher Arbeit mit vielen Integrationen gearbeitet.",
-        details: [
-          "Ich habe eine Partner-Integration mit individueller Authentifizierung, angepasster UI und API-Anbindung umgesetzt.",
-          "Ich habe direkt mit externen Teams zusammengearbeitet, um eine reibungslose Integration und Einführung sicherzustellen.",
-          "In dieser Zeit habe ich sowohl als Enterprise Frontend Developer als auch als Integrations Frontend Developer beigetragen.",
-          "Ich habe geholfen, die Plattform von einem Single-User-Modell zu einem organisationsbasierten System mit Teams, Rollen, Berechtigungen und Dokumentenverwaltung weiterzuentwickeln.",
-        ],
-      },
-      {
-        ...baseExperienceStyles[3],
-        role: "Admin Tools Frontend Developer",
-        period: "September 2019 - März 2022",
-        description:
-          "Ich habe Backoffice-Module für logistische und operative Abläufe aufgebaut und weiterentwickelt, mit starkem Fokus auf Migration und Wartbarkeit.",
-        details: [
-          "Ich habe mehr als 8 Backoffice-Module in logistischen und operativen Kontexten entwickelt und gepflegt.",
-          "Ich habe Benutzeroberflächen umgesetzt und mich dabei eng mit funktionsübergreifenden Teams abgestimmt, um ein konsistentes Erlebnis über mehrere Module hinweg sicherzustellen.",
-          "Ich habe Legacy-Module durch Migration zu React mit TypeScript modernisiert.",
-          "Ich habe Wartbarkeit und Performance interner Tools verbessert, die in sich schnell verändernden operativen Umfeldern genutzt werden.",
-        ],
-      },
-      {
-        ...baseExperienceStyles[4],
-        role: "Junior Developer",
-        period: "September 2017 - April 2019",
-        description:
-          "Ich habe an einer großen Healthcare-Webanwendung gearbeitet, die in ganz Portugal genutzt wurde, und dabei Stabilität gesichert sowie Produktverbesserungen geliefert.",
-        details: [
-          "Ich habe Bugs in einer großen Healthcare-Webanwendung für Apotheken und Krankenhäuser in Portugal behoben und das System weiter gepflegt.",
-          "Ich habe neue Funktionen mit JavaScript, HTML und CSS umgesetzt, um Arbeitsabläufe zu verbessern.",
-          "Ich habe in Agile/Scrum-Prozessen gearbeitet und Anforderungen sowie Prioritäten mit einem Product Manager abgestimmt.",
-        ],
-      },
-    ],
-    personal: {
-      title: "Wer André außerhalb der Technik ist",
-      mobileEyebrow: "Wer ich wirklich bin",
-      description:
-        "Abseits der Arbeit haben mich in unterschiedlichen Lebensphasen ganz verschiedene Dinge begeistert.\nEinige dieser Interessen und ein paar glückliche Zufälle haben mir geholfen, über weite Teile meines Berufswegs echte Freundschaften aufzubauen.",
-      items: [
-        "Reisen. Klischee, ich weiß, aber ich höre selten jemanden darüber klagen.",
-        "LEGO (Star Wars, Harry Potter, Architecture, was auch immer)",
-        "Tiere. Ich habe das Glück, mit zwei wunderbaren Katzen zu leben: Loki und Kitty.",
-        "Filme. Ich bin einer dieser Menschen, die die IMDb Top 250 einmal ziemlich ernst verfolgt haben.",
-        "Serien und Anime. Hier bin ich ein bisschen snobistisch, also landet alles mit 8,5 oder mehr auf IMDb direkt auf meiner Watchlist.",
-        "Zeit mit den Menschen zu verbringen, die mir am wichtigsten sind, egal ob bei Familientreffen oder Abendessen mit Freunden.",
-        "Fußball. Der mit den Füßen. Großer FC-Porto-Fan.",
+        "Futebol. Grande adepto do FC Porto.",
       ],
     },
   },

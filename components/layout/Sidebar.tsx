@@ -21,13 +21,11 @@ type SidebarProps = {
 const localeCodes: Record<Locale, string> = {
   en: "EN",
   pt: "PT",
-  de: "DE",
 };
 
 const localeFlags: Record<Locale, string> = {
   en: "🇬🇧",
   pt: "🇵🇹",
-  de: "🇩🇪",
 };
 
 export default function Sidebar({
@@ -147,7 +145,7 @@ export default function Sidebar({
       aria-label={ui.sidebarAriaLabel}
       className="border-b border-slate-800/80 px-6 py-5 lg:sticky lg:top-0 lg:h-screen lg:w-[22rem] lg:border-r lg:border-b-0 lg:px-8 lg:py-16"
     >
-      <div className="fixed top-4 right-4 z-50 sm:top-6 sm:right-6">
+      <div className="mb-5 flex justify-end lg:fixed lg:top-6 lg:right-6 lg:z-50">
         <details className="group relative">
           <summary
             aria-label={languageSwitcher.label}
@@ -177,7 +175,7 @@ export default function Sidebar({
           </summary>
 
           <div className="absolute right-0 mt-2 min-w-44 overflow-hidden rounded-2xl border border-white/10 bg-slate-950/95 p-1.5 shadow-[0_18px_48px_rgba(2,6,23,0.45)] backdrop-blur-md">
-            {(["en", "pt", "de"] as const).map((targetLocale) => {
+            {(["en", "pt"] as const).map((targetLocale) => {
               const href = `${getLocaleBasePath(targetLocale)}${activeHash}`;
               const isCurrentLocale = locale === targetLocale;
 

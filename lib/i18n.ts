@@ -2,8 +2,8 @@ import type { SectionId } from "@/data/navigation";
 
 export const defaultLocale = "en" as const;
 
-export const locales = ["en", "pt", "de"] as const;
-export const routedLocales = ["pt", "de"] as const;
+export const locales = ["en", "pt"] as const;
+export const routedLocales = ["pt"] as const;
 
 export type Locale = (typeof locales)[number];
 export type RoutedLocale = (typeof routedLocales)[number];
